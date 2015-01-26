@@ -5,4 +5,13 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
+    <!-- Btn -->
+    <string name="btn_add_contact">Add Contact</string>
+
+    <!-- User Create -->
+    <string name="user_contact_name">Contact Name</string>
+    <string name="user_phone_number">Phone Number</string>
+    <string name="user_email">Email</string>
+    <string name="user_address">Address</string>
+
 </resources>

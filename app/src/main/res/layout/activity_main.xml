@@ -28,28 +28,6 @@
                 android:layout_height="fill_parent">
 
                 <LinearLayout
-                    android:id="@+id/tabContactList"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="Large Text"
-                        android:id="@+id/textView"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="10dp" />
-
-                    <ListView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/listView"
-                        android:layout_gravity="center_horizontal" />
-                </LinearLayout>
-
-                <LinearLayout
                     android:id="@+id/tabCreator"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
@@ -64,6 +42,14 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="10dp" />
 
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:id="@+id/imgViewContactImage"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/no_user_logo" />
+
                     <EditText
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -71,7 +57,7 @@
                         android:ems="10"
                         android:id="@+id/txtName"
                         android:layout_marginTop="15dp"
-                        android:hint="Contact Name" />
+                        android:hint="@string/user_contact_name" />
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -80,7 +66,7 @@
                         android:ems="10"
                         android:id="@+id/txtPhone"
                         android:layout_marginTop="15dp"
-                        android:hint="Phone Number" />
+                        android:hint="@string/user_phone_number" />
 
                     <EditText
                         android:layout_width="fill_parent"
@@ -88,25 +74,47 @@
                         android:inputType="textEmailAddress"
                         android:ems="10"
                         android:id="@+id/txtEmail"
-                        android:hint="Email"
+                        android:hint="@string/user_email"
                         android:layout_marginTop="15dp" />
 
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/txtAddress"
-                        android:hint="Address"
+                        android:hint="@string/user_address"
                         android:inputType="textPostalAddress"
                         android:layout_marginTop="15dp" />
 
                     <Button
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
-                        android:text="Add Contact"
+                        android:text="@string/btn_add_contact"
                         android:id="@+id/btnAdd"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="15dp"
                         android:enabled="false" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tabContactList"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Contact List"
+                        android:id="@+id/textView"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10dp" />
+
+                    <ListView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/listView"
+                        android:layout_gravity="center_horizontal" />
                 </LinearLayout>
 
             </FrameLayout>
