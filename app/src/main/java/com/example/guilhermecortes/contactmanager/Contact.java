@@ -1,17 +1,21 @@
 package com.example.guilhermecortes.contactmanager;
 
+import android.net.Uri;
+
 /**
  * Created by guilhermecortes on 23/01/15.
  */
 public class Contact {
 
     private String _name, _phone, _email, _address;
+    private Uri _imageURI;
 
-    public Contact(String name, String phone, String email, String address){
+    public Contact(String name, String phone, String email, String address, Uri imageURI){
         _name = name;
         _phone = phone;
         _email = email;
         _address = address;
+        _imageURI = imageURI;
     }
 
     public String get_name() {
@@ -44,5 +48,13 @@ public class Contact {
 
     public void set_address(String _address) {
         this._address = _address;
+    }
+
+    public Uri get_imageURI() {
+        return _imageURI;
+    }
+
+    public void set_imageURI(Uri _imageURI) {
+        this._imageURI = _imageURI;
     }
 }

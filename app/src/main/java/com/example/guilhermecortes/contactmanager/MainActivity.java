@@ -2,6 +2,7 @@ package com.example.guilhermecortes.contactmanager;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -28,6 +29,7 @@ public class MainActivity extends Activity {
     ImageView contactImageImgView;
     List<Contact> Contacts = new ArrayList<Contact>();
     ListView contactListView;
+    Uri imageURI = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +62,7 @@ public class MainActivity extends Activity {
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addContact(nameTxt.getText().toString(), phoneTxt.getText().toString(), emailTxt.getText().toString(), addressTxt.getText().toString());
+                Contacts.add(new Contact(nameTxt.getText().toString(), phoneTxt.getText().toString(), emailTxt.getText().toString(), addressTxt.getText().toString(), imageURI));
                 populateList();
                 Toast.makeText(getApplicationContext(), nameTxt.getText().toString() +  " has been added to your Contacts!", Toast.LENGTH_SHORT).show();
             }
@@ -99,6 +101,7 @@ public class MainActivity extends Activity {
     public void onActivityResult(int reqCode, int resCode, Intent data){
         if (resCode == RESULT_OK){
             if (reqCode == 1){
+                imageURI = data.getData();
                 contactImageImgView.setImageURI(data.getData());
             }
         }
@@ -110,9 +113,9 @@ public class MainActivity extends Activity {
     }
 
     //add contact
-    private void addContact(String name, String phone, String email, String address){
-        Contacts.add(new Contact(name, phone, email, address));
-    }
+//    private void addContact(String name, String phone, String email, String address){
+//        Contacts.add(new Contact(name, phone, email, address));
+//    }
 
     private class ContactListAdapter extends ArrayAdapter<Contact>{
         public ContactListAdapter(){
@@ -135,6 +138,8 @@ public class MainActivity extends Activity {
             email.setText(currentContact.get_email());
             TextView address = (TextView) view.findViewById(R.id.cAddress);
             address.setText(currentContact.get_address());
+            ImageView ivContactImage = (ImageView) view.findViewById(R.id.ivContactImage);
+            ivContactImage.setImageURI(currentContact.get_imageURI());
 
             return view;
         }
